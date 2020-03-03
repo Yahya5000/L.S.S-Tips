@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>APC</title>
+	<style type="text/css">
+		body {
+		  background-color: #000;
+		}
+		table {
+		  border-spacing: 0;
+		  border: 1px solid black;
+		  border-color: #4b3b2a;
+		  width: 100%;
+		}
+		caption {
+		  color: white;
+		}
+		th, td {
+		  border: 1px solid black;
+		  border-color: #4b3b2a;
+		  background-color: #292929;
+		  color: #e7dcc7;
+		  text-align: center;
+		}
+		th {
+		  color: #c18357;
+		}
+		th, td {
+			width: 25%;
+		}
+		img {
+			width: 100%;
+		}
+		#div1, #S0-1, #S0-2, #S0-3, select {
+			width: 100%;
+		}
+		#div1, #div2 {
+			color: white;
+		}
+		.cbtn {
+			border: 1px solid #700;
+			padding: 10px;
+			color: #700;
+			background: #fff;
+			border-radius: 5px;
+			transition: all 0.5s;
+			font-size: 10px;
+		}
+		.cbtn:hover {
+			border: 1px solid #700;
+			padding: 10px;
+			color: #fff;
+			background: #700;
+			border-radius: 5px;
+			transition: all 0.5s;
+			font-size: 15px;
+		}
+		.hidden {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+<!--Div 1-->
+	<div id="div1">
+		<nav id="sltapc4">All rows
+			<button id="all" value="dAll" onclick="onClickAll('cAll')" class="cbtn">Any thing</button>
+			<button id="fighters" value="dFighters" onclick="onClickFighters()" class="cbtn">Fighters</button>
+			<button id="vehicles" value="dVehicles" onclick="onClickVehicles()" class="cbtn">Vehicles</button>
+			<button id="shooters" value="dShooters" onclick="onClickShooters()" class="cbtn">Shooters</button>
+		</nav>
+
+		<div id="S0-1">The first row
+			<select id="sltapc1" onchange="change_table1()">
+                <option value="Destroya" class="cAll">Iron Teef The Destroya</option>
+				<option value="Militant" id="mil1" class="cFighters">Militant: Nile</option>
+				<option value="Forsaken" class="cAll">The Forsaken One</option>
+                <option value="Courageous" class="cFighters">Uqbah The Courageous</option>
+                <option value="Jax" class="cVehicles">The Flash: Jax</option>
+                <option value="Falcon" class="cVehicles">The Falcon: Khalid</option>
+                <option value="Barnes" class="cShooters">The Cincinnatus: Barnes</option>
+                <option value="Klause" class="cFighters">Light of the past: Klause</option>
+                <option value="Janissary" class="cShooters">Fatih The Janissary</option>
+                <option value="Nigel" class="cFighters">Viscount: Nigel</option>
+                <option value="Andre" class="cVehicles">The Panzer: Andre</option>
+                <option value="Vanguard" class="cVehicles">Vanguard: Iharakayo</option>
+                <option value="Juggernaut" class="cFighters">Juggernaut: Constantine</option>
+                <option value="Lian" class="cShooters">Deus ex Machina: Lian Cheng Xie</option>
+                <option value="Augustine" class="cShooters">Captain Augustine</option>
+                <option value="Diesel" class="cVehicles">Caesar: Diesel</option>
+			</select>
+		</div>
+
+
+		<div id="S0-2">The second row
+			<select id="sltapc2" onchange="change_table2()">
+                <option value="Reaper">Reaper</option>
+				<option value="Razor">Razor: Musk</option>
+				<option id="han2" value="Hans2">Iron Guard: Hans</option>
+				<option id="mil2" value="Militant">Militant: Nile</option>
+				<option value="War_Hound">Adane The War Hound</option>
+				<option value="Arsenal">Sergej The Arsenal</option>
+				<option value="Jorge">The Inquisitor: Jorge</option>
+				<option id="eudora2" value="Eudora">The Executioner: Eudora</option>
+				<option id="jane2" value="Jane">Knight: Jane</option>
+				<option id="captain2" value="Captain">Captain Ivanov</option>
+				<option value="Wings">Wings of Liberty: Jason Van Dyck</option>
+				<option value="Lee">Tech Priestess: Jiwon Lee</option>
+				<option value="Farseer">Farseer: Yuu'Chen Haa'm</option>
+			</select>
+		</div>
+
+
+		<div id="S0-3">The third row
+			<select id="sltapc3" onchange="change_table3()">
+                <option value="Shoota_Man">Shoota Man: Mohauuk</option>
+				<option id="han3" value="Hans3">Iron Guard: Hans</option>
+				<option value="Gurdian">Dawn Gurdian: An'nuo</option>
+                <option value="Chuck">War Boss: Chuck</option>
+                <option value="Dragon">Dragon's Rage: Danny</option>
+                <option value="Prof">Part The Professional</option>
+                <option id="eudora3" value="Eudora">The Executioner: Eudora</option>
+				<option id="jane3" value="Jane">Knight: Jane</option>
+				<option id="captain3" value="Captain">Captain Ivanov</option>
+				<option value="Anastasia">Major Anastasia Nastya</option>
+				<option value="Veronica">Countdown: Veronica</option>
+				<option value="Bird">Humming Bird: Lydia</option>
+				<option value="Walker">Venom Walker: Davoros</option>
+			</select>
+		</div>
+	</div>
+
+	
+	<div>
+		<div>
+			<table>
+				<tr>
+					<th>Hero:</th>
+					<td id="td1"><img src='https://1.bp.blogspot.com/-qzkRF2buWns/XkQuBAVWyvI/AAAAAAAAAGw/YZm7PiSEUrc3RJDnYSLiO8SyHIXsiGJtQCLcBGAsYHQ/s320/MEmu_cgay5sd8Ia-removebg-preview.png'></td>
+					<td id="td11"><img src='https://1.bp.blogspot.com/-6Dya89CS8Bs/XkQt8UvadmI/AAAAAAAAAGc/QfkMnMtogcwtNWux8-_pKM_Vopfc59tmACLcBGAsYHQ/s320/MEmu_6Wb0SoND45-removebg-preview.png'></td>
+					<td id="td111"><img src='https://1.bp.blogspot.com/-__SeUNNO6QA/XkQt_KfDIRI/AAAAAAAAAGk/pzHrWZNhweoMa8AfZO47D-X3-CXr3l07gCLcBGAsYHQ/s320/MEmu_H9vZiKdfRk-removebg-preview.png'></td>
+				</tr>
+				<tr>
+					<th>Name:</th>
+					<td id="td2">Iron Teef The Destroya</td>
+					<td id="td22">Reaper</td>
+					<td id="td222">Shoota Man: Mohauuk</td>
+				</tr>
+				<tr>
+					<th>Season:</th>
+					<td id="td3">S0</td>
+					<td id="td33">S0</td>
+					<td id="td333">S0</td>
+				</tr>
+				<tr>
+					<th>Type:</th>
+					<td id="td4">all</td>
+					<td id="td44">all</td>
+					<td id="td444">all</td>
+				</tr>
+				<tr>
+					<th>Position:</th>
+					<td id="td5">1</td>
+					<td id="td55">2</td>
+					<td id="td555">3</td>
+				</tr>
+				<tr>
+					<th>Abilities:</th>
+					<td id="td6">-</td>
+					<td id="td66">Attacker</td>
+					<td id="td666">Attacker</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	
+
+	<script type="text/javascript">
+        
+        //S0 Heroes
+        
+		var razorImg = "<img src='https://1.bp.blogspot.com/-ckTfP-KZRH4/XkQt_dMnh0I/AAAAAAAAAGs/Z7Ud559mKEAyMaPhTas0fuqdK8PH-fWawCLcBGAsYHQ/s320/MEmu_aLGhC9rpWR-removebg-preview.png'>",
+			hansImg = "<img src='https://1.bp.blogspot.com/-8-8OCxV4Ppc/XkQt9AfYzKI/AAAAAAAAAGg/6KLEqzC_NlYfZkSfIW7-U-HiENhmU21OwCLcBGAsYHQ/s320/MEmu_FWvXo8CM68-removebg-preview.png'>",
+			warHoundImg = "<img src='https://1.bp.blogspot.com/-GAzjkvadShU/XkQt7aWKJhI/AAAAAAAAAGU/t_tYABngEg0X-CaT24QjKquqymF-NnEQwCLcBGAsYHQ/s320/MEmu_5Dw9ClOKik-removebg-preview.png'>",
+			reaperImg = "<img src='https://1.bp.blogspot.com/-6Dya89CS8Bs/XkQt8UvadmI/AAAAAAAAAGc/QfkMnMtogcwtNWux8-_pKM_Vopfc59tmACLcBGAsYHQ/s320/MEmu_6Wb0SoND45-removebg-preview.png'>",
+			dawnGuardianImg = "<img src='https://1.bp.blogspot.com/-WPGh1sAFy_k/XkQt_GGV-SI/AAAAAAAAAGo/dI9gmlXVtmMpm4pbwfAroGPaBJSKb9argCLcBGAsYHQ/s320/MEmu_TlRSTIMjhf-removebg-preview.png'>",
+			destroyaImg = "<img src='https://1.bp.blogspot.com/-qzkRF2buWns/XkQuBAVWyvI/AAAAAAAAAGw/YZm7PiSEUrc3RJDnYSLiO8SyHIXsiGJtQCLcBGAsYHQ/s320/MEmu_cgay5sd8Ia-removebg-preview.png'>",
+			shootaManImg = "<img src='https://1.bp.blogspot.com/-__SeUNNO6QA/XkQt_KfDIRI/AAAAAAAAAGk/pzHrWZNhweoMa8AfZO47D-X3-CXr3l07gCLcBGAsYHQ/s320/MEmu_H9vZiKdfRk-removebg-preview.png'>",
+			arsenalImg = "<img src='https://1.bp.blogspot.com/-vuavJFDYrkc/XkQt8An7pdI/AAAAAAAAAGY/dpaPEjqam0sK_4J2XlOVNgyilu-wmMQjwCLcBGAsYHQ/s320/MEmu_CNuqEp3bPZ-removebg-preview.png'>",
+			forsakenImg = "<img src='https://1.bp.blogspot.com/-HwH6tYm_eB8/XkQuB-eW3tI/AAAAAAAAAG4/VMSs_RPhaTIkfOvFH4CGT4RR4ng9rtvnQCLcBGAsYHQ/s1600/MEmu_fgBmohKiZj-removebg-preview.png'>",
+			nileImg = "<img src='https://1.bp.blogspot.com/-4K7zX7x5cQk/XkQuBu_GnuI/AAAAAAAAAG0/DPyrSITIedw18RZyvGzZxzsCkfOWjapzgCLcBGAsYHQ/s320/MEmu_ejm1Fe55Kh-removebg-preview.png'>",
+
+			
+			razorName = "Razor: Musk",
+			hansName = "Iron Guard: Hans",
+			nileName = "Militant: Nile",
+			forsakenName = "The Forsaken One",
+			arsenalName = "Sergej The Arsenal",
+			shootaManName = "Shoota Man: Mohauuk",
+			destroyaName = "Iron Teef The Destroya",
+			dawnGuardianName = "Dawn Gurdian: An'nuo",
+			reaperName = "Reaper",
+			warHoundName = "Adane The War Hound",
+
+            //S1 Heroes
+            
+            dragonImg = "<img src='https://1.bp.blogspot.com/-lUub772u-vU/XkbfFviRBoI/AAAAAAAAAHk/qjezszIUMOojMPDLksnpYEfj6PPWfytiwCLcBGAsYHQ/s320/MEmu_8Eyk61johV-removebg-preview.png'>",
+            chuckImg = "<img src='https://1.bp.blogspot.com/-NT1Ge_G_j-s/XkbfGF0CXnI/AAAAAAAAAHo/YqYUNMVwSywcsPza4Ncr6COYzPuWAH87wCLcBGAsYHQ/s320/MEmu_GCbNWFJUQ3-removebg-preview.png'>",
+            janissaryImg = "<img src='https://1.bp.blogspot.com/-SdGW1aGSdQY/XkbfGFj5CzI/AAAAAAAAAHs/h7gloY3oiwQFFKzTMTY3vfJZQ4LzOyJkwCLcBGAsYHQ/s320/MEmu_86G0fEMs6K-removebg-preview.png'>",
+            falconImg = "<img src='https://1.bp.blogspot.com/-IjbepfSpO-Q/XkbfINzPKjI/AAAAAAAAAH0/f1On_vjFN6AGyWTtkamcRHB-jprtcC9YgCLcBGAsYHQ/s320/MEmu_gh6KJ3H76f-removebg-preview.png'>",
+            courageousImg = "<img src='https://1.bp.blogspot.com/-7h7RxJGE38c/XkbfIJ-x2hI/AAAAAAAAAH4/V839ae70TO8-UJT3hvUyIxeUrTOos9EIACLcBGAsYHQ/s320/MEmu_iRXIrJfNgs-removebg-preview.png'>",
+            klauseImg = "<img src='https://1.bp.blogspot.com/-lpCqHnWSzCU/XkbfI1mRnNI/AAAAAAAAAH8/ythFPyl04VsFoBExMWAk2BQlc3Vjyg_0wCLcBGAsYHQ/s320/MEmu_lysbmjJmNg-removebg-preview.png'>",
+            profImg = "<img src='https://1.bp.blogspot.com/-hdtCdpgux58/XkbfKQoT6bI/AAAAAAAAAIE/0dZwwQkP1awdM3873xfl5cd_fzwIRAdHQCLcBGAsYHQ/s320/MEmu_mKFlkNSpwq-removebg-preview.png'>",
+            barnesImg = "<img src='https://1.bp.blogspot.com/-WLwcRKKdx40/XkbfK6xTgTI/AAAAAAAAAII/M8sGgFmGpIEJe8s6DJNfl-7vDaoZJvrwwCLcBGAsYHQ/s320/MEmu_wsmqlgWR1w-removebg-preview.png'>",
+            jaxImg = "<img src='https://1.bp.blogspot.com/-0h014dXYdBg/XkbfG0Wb2jI/AAAAAAAAAHw/tCdRQJqPkG4CjImVvKj1F3kRnsrVsXXUACLcBGAsYHQ/s320/MEmu_Z2vjysGIN7-removebg-preview.png'>",
+
+            
+            dragonName = "Dragon's Rage: Danny",
+            chuckName = "War Boss: Chuck",
+            janissaryName = "Fatih The Janissary",
+            falconName = "The Falcon: Khalid",
+            courageousName = "Uqbah The Courageous",
+            klauseName = "Light of the past: Klause",
+            profName = "Part The Professional",
+            barnesName = "The Cincinnatus: Barnes",
+            jaxName = "The Flash: Jax",
+            
+            //S2 Heroes
+            nigelImg = "<img src='https://1.bp.blogspot.com/-fC1o4UnbHWU/XkfxPCpwgXI/AAAAAAAAAJA/AH3N0wcPQsM2eNYjQtzXJG36h2O6AXj2wCLcBGAsYHQ/s320/MEmu_uT8lb1gyYI-removebg-preview.png'>",
+            andreImg = "<img src='https://1.bp.blogspot.com/--cGVTYE4e1k/XkfxPp5y3EI/AAAAAAAAAJE/IwQfYJJ5I1g1sOBAfdvtypEZM0JUmrYBACLcBGAsYHQ/s320/MEmu_x9TXaMAkmv-removebg-preview.png'>",
+            jorgeImg = "<img src='https://1.bp.blogspot.com/-obJvpwkZEfI/XkfxPPNgzYI/AAAAAAAAAI8/qKj7GNSGgeYD5DNDY6hgWLqfxb5ZrA1CgCLcBGAsYHQ/s320/MEmu_rTNwnKmveY-removebg-preview.png'>",
+            eudoraImg = "<img src='https://1.bp.blogspot.com/-HGr6Ce_8STU/XkfxMKPiVQI/AAAAAAAAAIw/1-zzLlWEluoZ5DUo-Pb79seeE82MIGNxQCLcBGAsYHQ/s320/MEmu_r9ryuEIv6k-removebg-preview.png'>",
+            janeImg = "<img src='https://1.bp.blogspot.com/-S6MluEQoCa4/XkfxMb7na1I/AAAAAAAAAI4/bIm6YiUdjNQOxjtwbHLKxGgCJMqsChFYgCLcBGAsYHQ/s320/MEmu_JrJaPAyjLZ-removebg-preview.png'>",
+            captainImg = "<img src='https://1.bp.blogspot.com/-OMynYA21D28/XkfxMcalrFI/AAAAAAAAAI0/RUTtfRero1IbcyxT9dS6oZphVnjusN2igCLcBGAsYHQ/s320/MEmu_gjIOxUq157-removebg-preview.png'>",
+
+
+            nigelName = "Viscount: Nigel",
+            andreName = "The Panzer: Andre",
+            jorgeName = "The Inquisitor: Jorge",
+            eudoraName = "The Executioner: Eudora",
+            janeName = "Knight: Jane",
+            captainName = "Captain Ivanov",
+            
+            //S3 Heroes
+
+            wingsImg = "<img src='https://1.bp.blogspot.com/-vnjrnF5jgNY/XlJtA663sjI/AAAAAAAAALI/ksY5Qfp7UPkx1dtRgWsfJpmwtT0vJ8TogCLcBGAsYHQ/s320/MEmu_eybFkUROPn-removebg-preview.png'>",
+            vanguardImg = "<img src='https://1.bp.blogspot.com/-lGX6O2rfLDU/XlJs-stHS8I/AAAAAAAAAK4/6PNKHeX9SwQHIVxM0hSH-B_J_6Coske4ACLcBGAsYHQ/s320/MEmu_BDAY5Q5io2-removebg-preview.png'>",
+            leeImg = "<img src='https://1.bp.blogspot.com/-50YbPX70C7c/XlJs_uAGN8I/AAAAAAAAALA/YEq2jzV6ptgwcC5bGxoy0_PvixO-F1jFACLcBGAsYHQ/s320/MEmu_Rg6ld0ThJw-removebg-preview.png'>",
+            anastasiaImg = "<img src='https://1.bp.blogspot.com/-jffH3Zufiew/XlJs-kHsRGI/AAAAAAAAAK8/X5aWl730fUIZLtlpX7cO0UsmaxsHorm1QCLcBGAsYHQ/s320/MEmu_Ookrj6vQIS-removebg-preview.png'>",
+            farseerImg = "<img src='https://1.bp.blogspot.com/-yVyR4J1Z56Y/XlJs-TuNIQI/AAAAAAAAAK0/_RD9KR0DBvE6P8ZMZYG2ccldYEj6kTeMwCLcBGAsYHQ/s320/MEmu_MJSEsZfg6q-removebg-preview.png'>",
+            veronicaImg = "<img src='https://1.bp.blogspot.com/-EgW-SVkIVsQ/XlJtAUSbp2I/AAAAAAAAALE/1LfEqWuldcILhViE52Agtz42N7fO25udgCLcBGAsYHQ/s320/MEmu_X5deOr9nyi-removebg-preview.png'>",
+
+
+            wingsName = "Wings of Liberty: Jason Van Dyck",
+            vanguardName = "Vanguard: Iharakayo",
+            leeName = "Tech Priestess: Jiwon Lee",
+            anastasiaName = "Major Anastasia Nastya",
+            farseerName = "Farseer: Yuu'Chen Haa'm",
+            veronicaName = "Countdown: Veronica",
+
+            //S4 Heroes
+
+            birdImg = "<img src='https://1.bp.blogspot.com/-m_f-W6BjmPU/XlOcBraPGBI/AAAAAAAAAL0/A0Ea5dkYBS0NRrtjsaQDUC_Fd6jVdBa0QCLcBGAsYHQ/s320/MEmu_nknhqeHx5U-removebg-preview.png'>",
+            walkerImg = "<img src='https://1.bp.blogspot.com/-xVbWIhjChAU/XlOcJBMvTTI/AAAAAAAAAL4/WL5ffz41FrI4Cd1o6riEXbI2PhGUCXtegCLcBGAsYHQ/s320/MEmu_VLjX7I8mRe-removebg-preview.png'>",
+            juggernautImg = "<img src='https://1.bp.blogspot.com/-1LkGUHi_dI0/XlOcNAW7W3I/AAAAAAAAAL8/s5wCRcZlN7cPby4seQul6d9wXsbC6d_wgCLcBGAsYHQ/s320/MEmu_NeKGINyAC6-removebg-preview.png'>",
+            lianImg = "<img src='https://1.bp.blogspot.com/-ZD_DNCX006Q/XlOcQAWiOyI/AAAAAAAAAMA/X4KNk_DPLaw0SZYarGZZ-S8Tnam_inaMgCLcBGAsYHQ/s1600/MEmu_vMhPVLjABb-removebg-preview.png'>",
+            augustineImg = "<img src='https://1.bp.blogspot.com/-wFTWR7OurzI/XlOcfscNfMI/AAAAAAAAAMM/3NO_IvwrIVgMiP73e7CVjboRkYc7QgD8gCLcBGAsYHQ/s1600/MEmu_3lih28ve7r-removebg-preview.png'>",
+            dieselImg = "<img src='https://1.bp.blogspot.com/-vkzkwUkHNoI/XlOclqEOYbI/AAAAAAAAAMU/gBt_DBYhYLwdL1GEJzhIRAxARL817hcjgCLcBGAsYHQ/s1600/MEmu_eFMCsXF5EY-removebg-preview.png'>",
+
+
+            birdName = "Humming Bird: Lydia",
+            walkerName = "Venom Walker: Davoros",
+            juggernautName = "Juggernaut: Constantine",
+            lianName = "Deus ex Machina: Lian Cheng Xie",
+            augustineName = "Captain Augustine",
+            dieselName = "Caesar: Diesel",
+
+
+            //S5 Heroes
+
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+            Img = "<img src=''>",
+
+
+
+		    a = "all",
+			f = "Fighters",
+			s = "Shooters",
+			v = "Vehicles",
+			si = "Silence (Enemy unable skill attack)",
+			we = "",
+			atk = "Attacker",
+			def = "Defender",
+			bb = "Blunt blade",
+			wd = "Weakend",
+			sup = "Suppression (Enemy unable basic/skill attack)",
+			pa = "Pierced Armor",
+			md = "Massive Damage",
+			fd = "Ferocious Damage",
+			d = "Dodge",
+			ca = "Counter-attack",
+			sp = "Splash/Sputtering",
+			dis = "Disarm (Enemy unable basic attack)",
+			bfi = "Burning / Flammable / Ignite",
+			far = "First-Aid / Recover",
+			ev = "Evade / Evasion",
+			con = "Confuse / Confusion",
+			cs = "Clarity / Sober",
+			po = "Poison",
+			cu = "Curse";
+
+			
+        
+    
+    
+		function change_table1() {
+			var x = document.getElementById("sltapc1").value;
+			    
+			if (x === 'Militant') {
+				document.getElementById("mil2").style.display = 'none',
+				document.getElementById("td1").innerHTML = nileImg,
+				document.getElementById("td2").innerHTML = nileName,
+				document.getElementById("td3").innerHTML = "S0",
+				document.getElementById("td4").innerHTML = f,
+				document.getElementById("td5").innerHTML = "1 , 2",
+				document.getElementById("td6").innerHTML = si;
+			}
+			if (x === 'Forsaken') {
+				document.getElementById("mil2").style.display = 'block',
+				document.getElementById("td1").innerHTML = forsakenImg,
+				document.getElementById("td2").innerHTML = forsakenName,
+				document.getElementById("td3").innerHTML = "S0",
+				document.getElementById("td4").innerHTML = a,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = si + ", " + wd;
+			}
+			if (x === 'Destroya') {
+				document.getElementById("mil2").style.display = 'block',
+				document.getElementById("td1").innerHTML = destroyaImg,
+				document.getElementById("td2").innerHTML = destroyaName,
+				document.getElementById("td3").innerHTML = "S0",
+				document.getElementById("td4").innerHTML = a,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = "-";
+			}
+            if (x === 'Courageous') {
+                document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = courageousImg,
+                document.getElementById("td2").innerHTML = courageousName,
+				document.getElementById("td3").innerHTML = "S1",
+				document.getElementById("td4").innerHTML = f,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = "-";
+            }
+            if (x === 'Jax') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = jaxImg,
+                document.getElementById("td2").innerHTML = jaxName,
+				document.getElementById("td3").innerHTML = "S1",
+				document.getElementById("td4").innerHTML = v,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = md + ", " + fd + ", " + d;
+            }
+            if (x === 'Falcon') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = falconImg,
+                document.getElementById("td2").innerHTML = falconName,
+				document.getElementById("td3").innerHTML = "S1",
+				document.getElementById("td4").innerHTML = v,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = "-";
+            }
+            if (x === 'Barnes') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = barnesImg,
+                document.getElementById("td2").innerHTML = barnesName,
+				document.getElementById("td3").innerHTML = "S1",
+				document.getElementById("td4").innerHTML = s,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = def + ", " + d + ", " + md + ", " + fd;
+            }
+            if (x === 'Klause') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = klauseImg,
+                document.getElementById("td2").innerHTML = klauseName,
+				document.getElementById("td3").innerHTML = "S1",
+				document.getElementById("td4").innerHTML = f,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = "-";
+            }
+            if (x === 'Janissary') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = janissaryImg,
+                document.getElementById("td2").innerHTML = janissaryName,
+				document.getElementById("td3").innerHTML = "S1",
+				document.getElementById("td4").innerHTML = s,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = atk;
+            }
+            if (x === 'Nigel') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = nigelImg,
+                document.getElementById("td2").innerHTML = nigelName,
+				document.getElementById("td3").innerHTML = "S2",
+				document.getElementById("td4").innerHTML = f,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = ca;
+            }
+            if (x === 'Andre') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = andreImg,
+                document.getElementById("td2").innerHTML = andreName,
+				document.getElementById("td3").innerHTML = "S2",
+				document.getElementById("td4").innerHTML = v,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = ca + ", " + sp;
+            }
+            if (x === 'Vanguard') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = vanguardImg,
+                document.getElementById("td2").innerHTML = vanguardName,
+				document.getElementById("td3").innerHTML = "S3",
+				document.getElementById("td4").innerHTML = v,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = ev;
+            }
+            if (x === 'Juggernaut') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = juggernautImg,
+                document.getElementById("td2").innerHTML = juggernautName,
+				document.getElementById("td3").innerHTML = "S4",
+				document.getElementById("td4").innerHTML = f,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = ca + ", " + far;
+            }
+            if (x === 'Lian') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = lianImg,
+                document.getElementById("td2").innerHTML = lianName,
+				document.getElementById("td3").innerHTML = "S4",
+				document.getElementById("td4").innerHTML = s,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = atk + ", " + far;
+            }
+            if (x === 'Augustine') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = augustineImg,
+                document.getElementById("td2").innerHTML = augustineName,
+				document.getElementById("td3").innerHTML = "S4",
+				document.getElementById("td4").innerHTML = s,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = def + ", " + dis;
+            }
+            if (x === 'Diesel') {
+            	document.getElementById("mil2").style.display = 'block',
+                document.getElementById("td1").innerHTML = dieselImg,
+                document.getElementById("td2").innerHTML = dieselName,
+				document.getElementById("td3").innerHTML = "S4",
+				document.getElementById("td4").innerHTML = v,
+				document.getElementById("td5").innerHTML = 1,
+				document.getElementById("td6").innerHTML = dis + ", " + si;
+            }
+		 } 
+
+		 function change_table2() {
+		 	var y = document.getElementById("sltapc2").value;
+			if (y === 'Razor') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = razorImg,
+				document.getElementById("td22").innerHTML = razorName,
+				document.getElementById("td33").innerHTML = "S0",
+				document.getElementById("td44").innerHTML = v,
+				document.getElementById("td55").innerHTML = 2,
+				document.getElementById("td66").innerHTML = "-";
+			}
+			if (y === 'Hans2') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'none',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = hansImg,
+				document.getElementById("td22").innerHTML = hansName,
+				document.getElementById("td33").innerHTML = "S0",
+				document.getElementById("td44").innerHTML = s,
+				document.getElementById("td55").innerHTML = "2 , 3",
+				document.getElementById("td66").innerHTML = atk;
+			}
+			if (y === 'Militant') {
+				document.getElementById("mil1").style.display = 'none',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = nileImg,
+				document.getElementById("td22").innerHTML = nileName,
+				document.getElementById("td33").innerHTML = "S0",
+				document.getElementById("td44").innerHTML = f,
+				document.getElementById("td55").innerHTML = "1 , 2",
+				document.getElementById("td66").innerHTML = si;
+			}
+			if (y === 'War_Hound') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = warHoundImg,
+				document.getElementById("td22").innerHTML = warHoundName,
+				document.getElementById("td33").innerHTML = "S0",
+				document.getElementById("td44").innerHTML = a,
+				document.getElementById("td55").innerHTML = 2,
+				document.getElementById("td66").innerHTML = bb + ", " + def + ", " + wd;
+			}
+			if (y === 'Arsenal') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = arsenalImg,
+				document.getElementById("td22").innerHTML = arsenalName,
+				document.getElementById("td33").innerHTML = "S0",
+				document.getElementById("td44").innerHTML = a,
+				document.getElementById("td55").innerHTML = 2,
+				document.getElementById("td66").innerHTML = def + ", " + sup;
+			}
+			if (y === 'Reaper') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = reaperImg,
+				document.getElementById("td22").innerHTML = reaperName,
+				document.getElementById("td33").innerHTML = "S0",
+				document.getElementById("td44").innerHTML = a,
+				document.getElementById("td55").innerHTML = 2,
+				document.getElementById("td66").innerHTML = atk;
+			}
+			if (y === 'Jorge') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = jorgeImg,
+				document.getElementById("td22").innerHTML = jorgeName,
+				document.getElementById("td33").innerHTML = "S2",
+				document.getElementById("td44").innerHTML = s,
+				document.getElementById("td55").innerHTML = 2,
+				document.getElementById("td66").innerHTML = atk + ", " + dis + ", " + sup;
+			}
+			if (y === 'Eudora') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'none',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = eudoraImg,
+				document.getElementById("td22").innerHTML = eudoraName,
+				document.getElementById("td33").innerHTML = "S2",
+				document.getElementById("td44").innerHTML = s,
+				document.getElementById("td55").innerHTML = "2 , 3",
+				document.getElementById("td66").innerHTML = atk + ", " + bfi + ", " + si;
+			}
+			if (y === 'Jane') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'none',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = janeImg,
+				document.getElementById("td22").innerHTML = janeName,
+				document.getElementById("td33").innerHTML = "S2",
+				document.getElementById("td44").innerHTML = f,
+				document.getElementById("td55").innerHTML = "2 , 3",
+				document.getElementById("td66").innerHTML = cu;
+			}
+			if (y === 'Captain') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'none',
+				document.getElementById("td11").innerHTML = captainImg,
+				document.getElementById("td22").innerHTML = captainName,
+				document.getElementById("td33").innerHTML = "S2",
+				document.getElementById("td44").innerHTML = v,
+				document.getElementById("td55").innerHTML = "2 , 3",
+				document.getElementById("td66").innerHTML = si;
+			}
+			if (y === 'Wings') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = wingsImg,
+				document.getElementById("td22").innerHTML = wingsName,
+				document.getElementById("td33").innerHTML = "S3",
+				document.getElementById("td44").innerHTML = s,
+				document.getElementById("td55").innerHTML = 2,
+				document.getElementById("td66").innerHTML = def + ", " + dis + ", " + far;
+			}
+			if (y === 'Lee') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'block',
+				document.getElementById("td11").innerHTML = leeImg,
+				document.getElementById("td22").innerHTML = leeName,
+				document.getElementById("td33").innerHTML = "S3",
+				document.getElementById("td44").innerHTML = f,
+				document.getElementById("td55").innerHTML = 2,
+				document.getElementById("td66").innerHTML = con + ", " + far;
+			}
+			if (y === 'Farseer') {
+				document.getElementById("mil1").style.display = 'block',
+				document.getElementById("han3").style.display = 'block',
+				document.getElementById("eudora3").style.display = 'block',
+		 		document.getElementById("jane3").style.display = 'block',
+				document.getElementById("captain3").style.display = 'none',
+				document.getElementById("td11").innerHTML = farseerImg,
+				document.getElementById("td22").innerHTML = farseerName,
+				document.getElementById("td33").innerHTML = "S3",
+				document.getElementById("td44").innerHTML = v,
+				document.getElementById("td55").innerHTML = 2,
+				document.getElementById("td66").innerHTML = cs;
+			}
+		 } 
+
+		 function change_table3() {
+		 	var z = document.getElementById("sltapc3").value;
+		 	if (z === 'Hans3') {
+		 		document.getElementById("han2").style.display = 'none',
+		 		document.getElementById("eudora2").style.display = 'block',
+		 		document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+		 		document.getElementById("td111").innerHTML = hansImg,
+		 		document.getElementById("td222").innerHTML = hansName,
+		 		document.getElementById("td333").innerHTML = "S0",
+				document.getElementById("td444").innerHTML = s,
+				document.getElementById("td555").innerHTML = "2 , 3",
+				document.getElementById("td666").innerHTML = atk;
+		 	}
+		 	if (z === 'Shoota_Man') {
+		 		document.getElementById("han2").style.display = 'block',
+		 		document.getElementById("eudora2").style.display = 'block',
+		 		document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+		 		document.getElementById("td111").innerHTML = shootaManImg,
+				document.getElementById("td222").innerHTML = shootaManName,
+				document.getElementById("td333").innerHTML = "S0",
+				document.getElementById("td444").innerHTML = a,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = atk;
+		 	}
+		 	if (z === 'Gurdian') {
+		 		document.getElementById("han2").style.display = 'block',
+		 		document.getElementById("eudora2").style.display = 'block',
+		 		document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+		 		document.getElementById("td111").innerHTML = dawnGuardianImg,
+				document.getElementById("td222").innerHTML = dawnGuardianName,
+				document.getElementById("td333").innerHTML = "S0",
+				document.getElementById("td444").innerHTML = a,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = atk + ", " + pa;
+		 	}
+		 	if (z === 'Chuck') {
+		 		document.getElementById("han2").style.display = 'block',
+		 		document.getElementById("eudora2").style.display = 'block',
+		 		document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+		 		document.getElementById("td111").innerHTML = chuckImg,
+				document.getElementById("td222").innerHTML = chuckName,
+				document.getElementById("td333").innerHTML = "S1",
+				document.getElementById("td444").innerHTML = v,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = wd;
+		 	}
+		 	if (z === 'Dragon') {
+		 		document.getElementById("han2").style.display = 'block',
+		 		document.getElementById("eudora2").style.display = 'block',
+		 		document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+		 		document.getElementById("td111").innerHTML = dragonImg,
+				document.getElementById("td222").innerHTML = dragonName,
+				document.getElementById("td333").innerHTML = "S1",
+				document.getElementById("td444").innerHTML = f,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = sup;
+		 	}
+		 	if (z === 'Prof') {
+		 		document.getElementById("han2").style.display = 'block',
+		 		document.getElementById("eudora2").style.display = 'block',
+		 		document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+		 		document.getElementById("td111").innerHTML = profImg,
+				document.getElementById("td222").innerHTML = profName,
+				document.getElementById("td333").innerHTML = "S1",
+				document.getElementById("td444").innerHTML = s,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = atk + ", " + sup;
+		 	}
+		 	if (z === 'Eudora') {
+				document.getElementById("han2").style.display = 'block',
+				document.getElementById("eudora2").style.display = 'none',
+				document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+				document.getElementById("td111").innerHTML = eudoraImg,
+				document.getElementById("td222").innerHTML = eudoraName,
+				document.getElementById("td333").innerHTML = "S2",
+				document.getElementById("td444").innerHTML = s,
+				document.getElementById("td555").innerHTML = "2 , 3",
+				document.getElementById("td666").innerHTML = atk + ", " + bfi + ", " + si;
+			}
+			if (z === 'Jane') {
+				document.getElementById("han2").style.display = 'block',
+				document.getElementById("eudora2").style.display = 'block',
+				document.getElementById("jane2").style.display = 'none',
+				document.getElementById("captain2").style.display = 'block',
+				document.getElementById("td111").innerHTML = janeImg,
+				document.getElementById("td222").innerHTML = janeName,
+				document.getElementById("td333").innerHTML = "S2",
+				document.getElementById("td444").innerHTML = f,
+				document.getElementById("td555").innerHTML = "2 , 3",
+				document.getElementById("td666").innerHTML = cu;
+			}
+			if (z === 'Captain') {
+				document.getElementById("han2").style.display = 'block',
+				document.getElementById("eudora2").style.display = 'block',
+				document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'none',
+				document.getElementById("td111").innerHTML = captainImg,
+				document.getElementById("td222").innerHTML = captainName,
+				document.getElementById("td333").innerHTML = "S2",
+				document.getElementById("td444").innerHTML = v,
+				document.getElementById("td555").innerHTML = "2 , 3",
+				document.getElementById("td666").innerHTML = si;
+			}
+			if (z === 'Anastasia') {
+				document.getElementById("han2").style.display = 'block',
+				document.getElementById("eudora2").style.display = 'block',
+				document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+				document.getElementById("td111").innerHTML = anastasiaImg,
+				document.getElementById("td222").innerHTML = anastasiaName,
+				document.getElementById("td333").innerHTML = "S3",
+				document.getElementById("td444").innerHTML = v,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = sup;
+			}
+			if (z === 'Veronica') {
+				document.getElementById("han2").style.display = 'block',
+				document.getElementById("eudora2").style.display = 'block',
+				document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+				document.getElementById("td111").innerHTML = veronicaImg,
+				document.getElementById("td222").innerHTML = veronicaName,
+				document.getElementById("td333").innerHTML = "S3",
+				document.getElementById("td444").innerHTML = v,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = "-";
+			}
+			if (z === 'Bird') {
+				document.getElementById("han2").style.display = 'block',
+				document.getElementById("eudora2").style.display = 'block',
+				document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+				document.getElementById("td111").innerHTML = birdImg,
+				document.getElementById("td222").innerHTML = birdName,
+				document.getElementById("td333").innerHTML = "S4",
+				document.getElementById("td444").innerHTML = s,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = def + ", " + dis + ", " + md + " / " + fd;
+			}
+			if (z === 'Walker') {
+				document.getElementById("han2").style.display = 'block',
+				document.getElementById("eudora2").style.display = 'block',
+				document.getElementById("jane2").style.display = 'block',
+				document.getElementById("captain2").style.display = 'block',
+				document.getElementById("td111").innerHTML = walkerImg,
+				document.getElementById("td222").innerHTML = walkerName,
+				document.getElementById("td333").innerHTML = "S4",
+				document.getElementById("td444").innerHTML = f,
+				document.getElementById("td555").innerHTML = 3,
+				document.getElementById("td666").innerHTML = bfi + ", " + cu + ", " + far + ", " + po;
+			}
+		 }
+
+
+
+
+		const cAll = document.querySelector('.cAll');
+		const cFighters = document.querySelector("option.cFighters");
+		const cVehicles = document.querySelector('.cVehicles');
+		const cShooters = document.querySelector('.cShooters');
+		const all = document.querySelector('#all');
+		const fighters = document.querySelector('#fighters');
+		const vehicles = document.querySelector('#vehicles');
+		const shooters = document.querySelector('#shooters');
+
+		all.addEventListener('click', () => {
+			cFighters.forEach(function(el) {el.classList.add('hidden')})
+			cVehicles.classList.remove('hidden');
+			cShooters.classList.remove('hidden');
+		})
+
+		fighters.addEventListener('click', function() {
+			cFighters.classList.remove('hidden');
+			cVehicles.classList.add('hidden');
+			cShooters.classList.add('hidden');
+		})
+
+		vehicles.addEventListener('click', () => {
+			cFighters.classList.add('hidden');
+			cVehicles.classList.remove('hidden');
+			cShooters.classList.add('hidden');
+		})
+
+		shooters.addEventListener('click', () => {
+			cFighters.classList.add('hidden');
+			cVehicles.classList.add('hidden');
+			cShooters.classList.remove('hidden');
+		})
+
+		 
+		 
+	</script>
+</body>
+</html>
