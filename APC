@@ -824,7 +824,7 @@
 		const shooters = document.querySelector('#shooters');
 
 		all.addEventListener('click', () => {
-			cFighters.forEach(function(el) {el.classList.add('hidden')})
+			cFighters.classList.remove('hidden');
 			cVehicles.classList.remove('hidden');
 			cShooters.classList.remove('hidden');
 		})
