@@ -65,10 +65,10 @@
 <!--Div 1-->
 	<div id="div1">
 		<nav id="sltapc4">All rows
-			<button id="all" value="dAll" onclick="onClickAll('cAll')" class="cbtn">Any thing</button>
-			<button id="fighters" value="dFighters" onclick="onClickFighters()" class="cbtn">Fighters</button>
-			<button id="vehicles" value="dVehicles" onclick="onClickVehicles()" class="cbtn">Vehicles</button>
-			<button id="shooters" value="dShooters" onclick="onClickShooters()" class="cbtn">Shooters</button>
+			<button id="all" class="cbtn">Any thing</button>
+			<button id="fighters" class="cbtn">Fighters</button>
+			<button id="vehicles" class="cbtn">Vehicles</button>
+			<button id="shooters" class="cbtn">Shooters</button>
 		</nav>
 
 		<div id="S0-1">The first row
@@ -95,38 +95,38 @@
 
 		<div id="S0-2">The second row
 			<select id="sltapc2" onchange="change_table2()">
-                <option value="Reaper">Reaper</option>
-				<option value="Razor">Razor: Musk</option>
-				<option id="han2" value="Hans2">Iron Guard: Hans</option>
-				<option id="mil2" value="Militant">Militant: Nile</option>
-				<option value="War_Hound">Adane The War Hound</option>
-				<option value="Arsenal">Sergej The Arsenal</option>
-				<option value="Jorge">The Inquisitor: Jorge</option>
-				<option id="eudora2" value="Eudora">The Executioner: Eudora</option>
-				<option id="jane2" value="Jane">Knight: Jane</option>
-				<option id="captain2" value="Captain">Captain Ivanov</option>
-				<option value="Wings">Wings of Liberty: Jason Van Dyck</option>
-				<option value="Lee">Tech Priestess: Jiwon Lee</option>
-				<option value="Farseer">Farseer: Yuu'Chen Haa'm</option>
+                <option value="Reaper" class="cAll">Reaper</option>
+				<option value="Razor" class="cVehicles">Razor: Musk</option>
+				<option id="han2" value="Hans2" class="cShooters">Iron Guard: Hans</option>
+				<option id="mil2" value="Militant" class="cFighters">Militant: Nile</option>
+				<option value="War_Hound" class="cAll">Adane The War Hound</option>
+				<option value="Arsenal" class="cAll">Sergej The Arsenal</option>
+				<option value="Jorge" class="cShooters">The Inquisitor: Jorge</option>
+				<option id="eudora2" value="Eudora" class="cShooters">The Executioner: Eudora</option>
+				<option id="jane2" value="Jane" class="cFighters">Knight: Jane</option>
+				<option id="captain2" value="Captain" class="cVehicles">Captain Ivanov</option>
+				<option value="Wings" class="cShooters">Wings of Liberty: Jason Van Dyck</option>
+				<option value="Lee" class="cFighters">Tech Priestess: Jiwon Lee</option>
+				<option value="Farseer" class="cVehicles">Farseer: Yuu'Chen Haa'm</option>
 			</select>
 		</div>
 
 
 		<div id="S0-3">The third row
 			<select id="sltapc3" onchange="change_table3()">
-                <option value="Shoota_Man">Shoota Man: Mohauuk</option>
-				<option id="han3" value="Hans3">Iron Guard: Hans</option>
-				<option value="Gurdian">Dawn Gurdian: An'nuo</option>
-                <option value="Chuck">War Boss: Chuck</option>
-                <option value="Dragon">Dragon's Rage: Danny</option>
-                <option value="Prof">Part The Professional</option>
-                <option id="eudora3" value="Eudora">The Executioner: Eudora</option>
-				<option id="jane3" value="Jane">Knight: Jane</option>
-				<option id="captain3" value="Captain">Captain Ivanov</option>
-				<option value="Anastasia">Major Anastasia Nastya</option>
-				<option value="Veronica">Countdown: Veronica</option>
-				<option value="Bird">Humming Bird: Lydia</option>
-				<option value="Walker">Venom Walker: Davoros</option>
+                <option value="Shoota_Man" class="cAll">Shoota Man: Mohauuk</option>
+				<option id="han3" value="Hans3" class="cShooters">Iron Guard: Hans</option>
+				<option value="Gurdian" class="cAll">Dawn Gurdian: An'nuo</option>
+                <option value="Chuck" class="cVehicles">War Boss: Chuck</option>
+                <option value="Dragon" class="cFighters">Dragon's Rage: Danny</option>
+                <option value="Prof" class="cShooters">Part The Professional</option>
+                <option id="eudora3" value="Eudora" class="cShooters">The Executioner: Eudora</option>
+				<option id="jane3" value="Jane" class="cFighters">Knight: Jane</option>
+				<option id="captain3" value="Captain" class="cVehicles">Captain Ivanov</option>
+				<option value="Anastasia" class="cVehicles">Major Anastasia Nastya</option>
+				<option value="Veronica" class="cVehicles">Countdown: Veronica</option>
+				<option value="Bird" class="cShooters">Humming Bird: Lydia</option>
+				<option value="Walker" class="cFighters">Venom Walker: Davoros</option>
 			</select>
 		</div>
 	</div>
@@ -641,7 +641,7 @@
 				document.getElementById("han3").style.display = 'block',
 				document.getElementById("eudora3").style.display = 'block',
 		 		document.getElementById("jane3").style.display = 'block',
-				document.getElementById("captain3").style.display = 'none',
+				document.getElementById("captain3").style.display = 'block',
 				document.getElementById("td11").innerHTML = farseerImg,
 				document.getElementById("td22").innerHTML = farseerName,
 				document.getElementById("td33").innerHTML = "S3",
@@ -814,38 +814,44 @@
 
 
 
-		const cAll = document.querySelector('.cAll');
-		const cFighters = document.querySelector("option.cFighters");
-		const cVehicles = document.querySelector('.cVehicles');
-		const cShooters = document.querySelector('.cShooters');
+		const cAll = document.querySelectorAll('.cAll');
+		const cFighters = document.querySelectorAll('cFighters');
+		const cVehicles = document.querySelectorAll('.cVehicles');
+		const cShooters = document.querySelectorAll('.cShooters');
 		const all = document.querySelector('#all');
 		const fighters = document.querySelector('#fighters');
 		const vehicles = document.querySelector('#vehicles');
 		const shooters = document.querySelector('#shooters');
 
-		all.addEventListener('click', () => {
-			cFighters.classList.remove('hidden');
-			cVehicles.classList.remove('hidden');
-			cShooters.classList.remove('hidden');
+		
+
+
+
+		all.addEventListener('click', function() {
+			document.querySelectorAll('.cFighters').forEach(el => el.style.display = 'unset')
+			document.querySelectorAll('.cVehicles').forEach(el => el.style.display = 'unset')
+			document.querySelectorAll('.cShooters').forEach(el => el.style.display = 'unset')
 		})
 
 		fighters.addEventListener('click', function() {
-			cFighters.classList.remove('hidden');
-			cVehicles.classList.add('hidden');
-			cShooters.classList.add('hidden');
+			document.querySelectorAll('.cFighters').forEach(el => el.style.display = 'unset')
+			document.querySelectorAll('.cVehicles').forEach(el => el.style.display = 'none')
+			document.querySelectorAll('.cShooters').forEach(el => el.style.display = 'none')
 		})
 
-		vehicles.addEventListener('click', () => {
-			cFighters.classList.add('hidden');
-			cVehicles.classList.remove('hidden');
-			cShooters.classList.add('hidden');
+		vehicles.addEventListener('click', function() {
+			document.querySelectorAll('.cFighters').forEach(el => el.style.display = 'none')
+			document.querySelectorAll('.cVehicles').forEach(el => el.style.display = 'unset')
+			document.querySelectorAll('.cShooters').forEach(el => el.style.display = 'none')
 		})
 
-		shooters.addEventListener('click', () => {
-			cFighters.classList.add('hidden');
-			cVehicles.classList.add('hidden');
-			cShooters.classList.remove('hidden');
+		shooters.addEventListener('click', function() {
+			document.querySelectorAll('.cFighters').forEach(el => el.style.display = 'none')
+			document.querySelectorAll('.cVehicles').forEach(el => el.style.display = 'none')
+			document.querySelectorAll('.cShooters').forEach(el => el.style.display = 'unset')
 		})
+
+		
 
 		 
 		 
